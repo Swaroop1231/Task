@@ -15,6 +15,7 @@
 		E5BEC2891D39DFCA002220F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5BEC2881D39DFCA002220F2 /* Assets.xcassets */; };
 		E5BEC28C1D39DFCA002220F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5BEC28A1D39DFCA002220F2 /* LaunchScreen.storyboard */; };
 		E5BEC2951D39EAE3002220F2 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BEC2941D39EAE3002220F2 /* CustomTableViewCell.m */; };
+		E5D6AF491D3FCFF0000FB436 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D6AF481D3FCFF0000FB436 /* placeholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		E5BEC28D1D39DFCA002220F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5BEC2931D39EAE3002220F2 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		E5BEC2941D39EAE3002220F2 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		E5D6AF481D3FCFF0000FB436 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		E5BEC27B1D39DFC9002220F2 /* Task */ = {
 			isa = PBXGroup;
 			children = (
+				E5D6AF4A1D3FD096000FB436 /* Images */,
 				E51299BB1D3A70FB00C4ABD1 /* AppDelegate */,
 				E51299B91D3A70E300C4ABD1 /* ServiceHelper */,
 				E51299BF1D3A717200C4ABD1 /* Model */,
@@ -129,6 +132,14 @@
 				E5BEC27D1D39DFCA002220F2 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E5D6AF4A1D3FD096000FB436 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E5D6AF481D3FCFF0000FB436 /* placeholder.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5BEC28C1D39DFCA002220F2 /* LaunchScreen.storyboard in Resources */,
+				E5D6AF491D3FCFF0000FB436 /* placeholder.png in Resources */,
 				E5BEC2891D39DFCA002220F2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

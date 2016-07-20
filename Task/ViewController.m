@@ -30,21 +30,52 @@
     self.view = [[UIView alloc] initWithFrame:rect];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    
-    mainTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    mainTable.delegate=self;
-    mainTable.dataSource=self;
-    mainTable.translatesAutoresizingMaskIntoConstraints = NO;
-    [mainTable registerClass:[CustomTableViewCell class] forCellReuseIdentifier:@"cell"];
-
+    mainTable = [[UITableView alloc] initWithFrame:self.view.bounds];
+    mainTable.dataSource = self;
+    mainTable.delegate = self;
+    mainTable.rowHeight = UITableViewAutomaticDimension;
+    mainTable.estimatedRowHeight = 44.0;
     [self.view addSubview:mainTable];
     
-    NSDictionary *views =
-    NSDictionaryOfVariableBindings(mainTable);
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:
-                               @"H:|[mainTable]|" options:0 metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:
-                               @"V:|[mainTable]|" options:0 metrics:nil views:views]];
+    
+    
+    //********* Consrtraints for TableView *********//
+
+    
+    
+    mainTable.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mainTable
+                                                          attribute:NSLayoutAttributeLeading
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeLeading
+                                                         multiplier:1
+                                                           constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mainTable
+                                                          attribute:NSLayoutAttributeTop
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeTop
+                                                         multiplier:1
+                                                           constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mainTable
+                                                          attribute:NSLayoutAttributeBottom
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeBottom
+                                                         multiplier:1
+                                                           constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:mainTable
+                                                          attribute:NSLayoutAttributeTrailingMargin
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeTrailingMargin
+                                                         multiplier:1
+                                                           constant:0]];
+    
+    [mainTable registerClass:[CustomTableViewCell class] forCellReuseIdentifier:@"cell"];
+    
+
     
     
 }
@@ -109,7 +140,7 @@
 
     
     
-    cell.displayImageView.image = [UIImage imageNamed:@"no_image_s8.png"];
+    cell.displayImageView.image = [UIImage imageNamed:@"placeholder.png"];
     
     // download the image asynchronously
     [self downloadImageWithURL:[NSURL URLWithString:facts.factImageUrl] completionBlock:^(BOOL succeeded, UIImage *image) {
@@ -117,8 +148,6 @@
             // change the image in the cell
              cell.displayImageView.image = image;
             
-            // cache the image for use later (when scrolling up)
-            //contact.imgProfile = image;
         }
     }];
     // Make sure the constraints have been added to this cell, since it may have just been created from scratch
@@ -131,18 +160,6 @@
 }
 
 
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-   
-    return 500;
-}
-
-//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 44;
-//}
 
 #pragma mark Activity Indicator
 
@@ -211,6 +228,8 @@
 
 
 }
+#pragma mark Download Image from API
+
 - (void)downloadImageWithURL:(NSURL *)url completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock
 {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
