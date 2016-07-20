@@ -32,6 +32,7 @@
     if (self)
     {
         
+
         //********* Title label *********//
         self.titleLabel  = [[UILabel alloc] init];
         self.titleLabel .numberOfLines = 0;
@@ -44,8 +45,8 @@
         [self.contentView addSubview:self.titleLabel ];
         
         //********* Image View *********//
-
-
+        
+        
         
         self.displayImageView  = [[UIImageView alloc] init];
         [self.displayImageView  setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
@@ -54,7 +55,7 @@
         [self.contentView addSubview:self.displayImageView ];
         
         //********* Description label *********//
-
+        
         self.descriptionLabel = [[UILabel alloc] init];
         [self.descriptionLabel setFont:[UIFont systemFontOfSize:15]];
         
@@ -81,7 +82,7 @@
         self.didSetupConstraints = YES;
         
         //********* Consrtraints for Title label *********//
-
+        
         
         [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.titleLabel
                                                                      attribute:NSLayoutAttributeTrailing
@@ -97,7 +98,7 @@
                                                                      attribute:NSLayoutAttributeTop
                                                                     multiplier:1
                                                                       constant:15]];
-              [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.titleLabel
+        [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.titleLabel
                                                                      attribute:NSLayoutAttributeLeading
                                                                      relatedBy:NSLayoutRelationEqual
                                                                         toItem:self.contentView
@@ -110,8 +111,8 @@
         
         
         //********* Consrtraints for ImageView *********//
-
-
+        
+        
         [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.displayImageView
                                                                      attribute:NSLayoutAttributeTop
                                                                      relatedBy:NSLayoutRelationEqual
@@ -131,14 +132,14 @@
         
         
         
-        [self.displayImageView addConstraint:[NSLayoutConstraint constraintWithItem:self.displayImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:self.contentView.frame.size.width-40]];
+        [self.displayImageView addConstraint:[NSLayoutConstraint constraintWithItem:self.displayImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:200]];
         
-        [self.displayImageView addConstraint:[NSLayoutConstraint constraintWithItem:self.displayImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:self.contentView.frame.size.width-40]];
-
+        [self.displayImageView addConstraint:[NSLayoutConstraint constraintWithItem:self.displayImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:200]];
+        
         
         
         //********* Consrtraints for Description Label *********//
-
+        
         
         [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.descriptionLabel
                                                                      attribute:NSLayoutAttributeTrailing
@@ -162,7 +163,7 @@
                                                                         toItem:self.displayImageView
                                                                      attribute:NSLayoutAttributeTop
                                                                     multiplier:1
-                                                                      constant:self.contentView.frame.size.width+30]];
+                                                                      constant:280]];
         
         [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.descriptionLabel
                                                                      attribute:NSLayoutAttributeBottom
