@@ -132,9 +132,9 @@
         
         
         
-        [self.displayImageView addConstraint:[NSLayoutConstraint constraintWithItem:self.displayImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:200]];
+        [self.displayImageView addConstraint:[NSLayoutConstraint constraintWithItem:self.displayImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:self.contentView.frame.size.width-40]];
         
-        [self.displayImageView addConstraint:[NSLayoutConstraint constraintWithItem:self.displayImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:200]];
+        [self.displayImageView addConstraint:[NSLayoutConstraint constraintWithItem:self.displayImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:1 constant:self.contentView.frame.size.width-40]];
         
         
         
@@ -161,7 +161,7 @@
                                                                      attribute:NSLayoutAttributeTop
                                                                      relatedBy:NSLayoutRelationEqual
                                                                         toItem:self.displayImageView
-                                                                     attribute:NSLayoutAttributeTop
+                                                                     attribute:NSLayoutAttributeBottom
                                                                     multiplier:1
                                                                       constant:280]];
         
